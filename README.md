@@ -1,6 +1,6 @@
 # 2023 Tourism Data Utilization Contest Development
 **Development of innovative tourism services (web, app, etc.) utilizing public TourAPI (mandatory), Kakao OpenAPI, and various public data APIs.**
-
+Date: May, 2023 ~ Nov, 2023
 ---
 
 ## Walking Trail Safety Index and Management System (Responsive Web)
