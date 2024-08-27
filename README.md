@@ -3,7 +3,7 @@
 
 ---
 
-## Walking Trail Safety Index and Management System
+## Walking Trail Safety Index and Management System (Responsive Web)
 
 ### Overview
 This project was created as part of the 2023 Tourism Data Contest organized by the Korea Tourism Organization. The goal is to enhance the safety of walking tourists by developing a "Walking Trail Safety Index" and a management system that identifies safe paths and reports dangerous areas.
@@ -24,8 +24,7 @@ This project was created as part of the 2023 Tourism Data Contest organized by t
 - **Ecotourism Information**  
   Integrates with the Korea Tourism Organization's TourAPI to offer detailed ecotourism information, catering to the growing preference for ecological tourism.
 
-  ![Uploading Screenshot 2024-08-27 at 10.14.02.png…]()
-
+  <img width="1503" alt="Screenshot 2024-08-27 at 10 14 02" src="https://github.com/user-attachments/assets/d4174c26-2777-4987-a630-9042b5848538">
 
 ### Data Utilization
 The system leverages data from the Korea Tourism Organization's TourAPI and Kakao Map API to provide real-time safety information and intuitive map-based markers. Future enhancements include integrating additional data sources like the GoCamping API to expand the service's coverage to more walking trails.
