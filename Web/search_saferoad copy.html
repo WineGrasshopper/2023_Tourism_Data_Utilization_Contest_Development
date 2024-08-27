@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>닫기가 가능한 커스텀 오버레이</title>
+        <style>
+        .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+        .wrap * {padding: 0;margin: 0;}
+        .wrap .info {width: px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+        .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+        .info .title {padding: 5px 0 0 10px; height: 30px; background: #33A2FF; border-bottom: 1px solid #ddd; font-size: 18px; font-weight: bold;}
+        .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+        .info .close:hover {cursor: pointer;}
+        .info .body {position: relative;overflow: hidden;}
+        .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+        .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        .desc .jibun {font-size: 9px;color: #888;margin-top: -2px;}
+        .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+        .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+        .info .link {color: #5085BB;}
+        </style>
+        <title>걷기 여행길 안전지수 및 관리시스템 개발</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">걷기 여행길 안전지수 및 관리시스템</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="introduce.html">소개</a></li>
+                            <li class="nav-item"><a class="nav-link" href="search_saferoad.html">안전한 길 찾기</a></li>
+                            <li class="nav-item"><a class="nav-link" href="search_saferoad real.html">위험한 길 안전신고</a></li>
+                            <li class="nav-item"><a class="nav-link" href="search_saferoad copy.html">국내 생태관광지 정보</a></li>
+                            <li class="nav-item"><a class="nav-link" href="faq.html">게시판</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">문의등록</a></li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- alert -->
+            <section class="notice">
+                <div class="page-title">
+                    <div class="container">
+                        <h3>국내 생태관광 정보</h3>
+                    </div>
+                </div>
+                <div id="map" style="display: block; width: 100%; text-align: center;"></div>
+                <script>
+                    const url = "https://apis.data.go.kr/B551011/GreenTourService1/areaBasedSyncList1?serviceKey=DMRPUUsQ7MmP1GRYykDh8bUTWpMC43yW%2BwaCJgQ7AOyaoSIf3ECZiEdmpCXJpcS2QmfgGHwc606bon%2B2uEH8hw%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&arrange=C";
+                    fetch(url)
+                        .then((res) => res.json())
+                        .then((myJson) => {
+                            const items = myJson.response.body.items.item;
+                            let tableContent = "<table border='1'><tr><th>Title</th><th>주소</th><th>소개</th><th>이미지</th></tr>";
+                            
+                            items.forEach(item => {
+                                tableContent += `<tr><td>${item.title}</td><td>${item.addr}</td><td>${item.summary}</td><td><img src="${item.mainimage}" alt="${item.title}" style="width: 100px;"></td></tr>`;
+                            });
+                        
+                            tableContent += "</table>";
+                            document.getElementById('map').innerHTML = tableContent;
+                        });
+                </script>
+        
+                <!-- Footer-->
+                <footer class="bg-dark py-4 mt-auto">
+                    <div class="container px-5">
+                        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                            <div class="col-auto"><div class="small m-0 text-white">04763 서울시 성동구 왕십리로 222 한양대학교 사회과학관 207호 정철 교수 연구실</div></div>
+                            <div class="col-auto">
+                                <a class="link-light small" href="#!">+82 2-2220-0869</a>
+                                <span class="text-white mx-1">&middot;</span>
+                                <a class="link-light small" href="#!">Jeong72@hanyang.kr</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+    </body>
+</html>
+
