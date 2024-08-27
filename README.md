@@ -25,9 +25,9 @@ The system leverages data from the Korea Tourism Organization's TourAPI and Kaka
 The project aims to continuously update and extend the service to additional trails and eventually commercialize it as a mobile app. Users who report hazards will be incentivized through rewards and recognition, fostering sustained engagement.
 
 ### Project Contributors
-- **Jeong Cheol** - Project Planning (Lead Researcher)
-- **Lee Jaehyun** - Service Development (Frontend/Backend), PHP, Design, Planning
-- **Joo Hajung** - Planning
+- **Chul, Jeong** - Project Planning (Lead Researcher)
+- **Jaehyun, Lee** - Service Development (Frontend/Backend), PHP, Design, Planning
+- **Hajung, Joo** - Planning
 
 ### Project Link
 http://tourismwwalking.com  
